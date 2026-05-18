@@ -1,13 +1,22 @@
 import { products } from "@/store/products.store";
-import { Redirect, useLocalSearchParams } from "expo-router";
+import { Redirect, useLocalSearchParams, useNavigation } from "expo-router";
+import { useEffect } from "react";
 import { Text, View } from "react-native";
 
 const ProductScreen = () => {
   // 1. Obtenemos el parámetro 'id' desde la URL
   const { id } = useLocalSearchParams();
 
+  const navigation = useNavigation();
+
   // 2. Buscamos el producto en nuestro store
   const product = products.find((p) => p.id === id);
+
+  useEffect(() => {
+    navigation.setOptions({
+      title: product?.title ?? "Producto",
+    });
+  }, [product]);
 
   // 3. Medida de seguridad: Si no existe, lo regresamos a la raíz
   if (!product) {

@@ -28,7 +28,7 @@ const TabLayout = () => {
         options={{
           title: "Settings",
           tabBarIcon: ({ color }) => (
-            <Ionicons size={28} name="settings-outline" color={color} />
+            <Ionicons size={28} name="star-outline" color={color} />
           ),
         }}
       />

@@ -17,7 +17,7 @@ const ProductsScreen = () => {
               <Text className="font-work-black">{item.price}</Text>
 
               {/* OJO AQUÍ: La ruta dinámica */}
-              <Link href={`/tabs/products/${item.id}`} className="text-primary">
+              <Link href={`/products/${item.id}`} className="text-primary">
                 Ver detalles
               </Link>
             </View>
